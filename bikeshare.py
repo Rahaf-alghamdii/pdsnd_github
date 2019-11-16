@@ -9,7 +9,7 @@ def select_city():
     all_states = ['new york', 'chicago', 'washington'] #list of states we have
     while state.lower() not in all_states: #set the value user type as lowercase in city variable
         state = input('Let\'s explore some data from United States!\n' 'Would you like to see '
-                      'data for  New York, Chicago, or' ' Washington?\n')
+                      'see bikeshare data for  New York, Chicago, or' ' Washington?\n')
         if state.lower() == 'new york':
             return 'new_york_city.csv'
         elif state.lower() == 'chicago':
@@ -53,7 +53,7 @@ def ask_day():
     this_month = ask_month()[0] #Ask for month and get current month
     month = int(this_month[5:]) #Extract the month only from the date ex.ask_month()[0] will be '2017-4' so this_month[5:] will be 4
     valid = False #Assume date isn't correct at first
-    while valid == False:    
+    while valid == False:
         is_int = False #Assume the day is not int
         day = input('\nWhich day? Integer Only.\n')
         while is_int == False:
@@ -102,7 +102,7 @@ def popular_hour(df):
         pop_hour = pop - 12
     print('The most popular hour is {}{}.'.format(pop_hour, am_pm))
 
-    
+
 
 
 def popular_stations(df):
@@ -133,7 +133,7 @@ def trip_duration(df):
     else:
         print('The average trip duration {} minutes and {} seconds.'.format(m, s))
 
-        
+
 def users(df):
     #Find out how many Subscriber and customer
     subscriber = df.query('user_type == "Subscriber"').user_type.count() #Get all Subscriber and count them
@@ -213,7 +213,7 @@ def program(): #The Main funtion that holds all operations
     new_labels = []
     for col in df.columns: #go through all columns
         new_labels.append(col.replace(' ', '_').lower()) #make all rows in lowercase and all spaces with underscore for easy access the data
-    df.columns = new_labels #new columns name in a list called new_lables    
+    df.columns = new_labels #new columns name in a list called new_lables
     # increases the column width so that the long strings in the 'journey'
     # column can be displayed fully
     pd.set_option('max_colwidth', 100)
@@ -231,17 +231,17 @@ def program(): #The Main funtion that holds all operations
         df_filtered = df[(df['start_time'] >= filter_lower) & (df['start_time'] < filter_upper)]
     print('\nCalculating ...')
     if time_period == 'none':
-        start_time = time.time() #Save current time before execution        
+        start_time = time.time() #Save current time before execution
         # get the most popular month
         popular_month(df_filtered)
         print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took
-        print("\nCalculating ...")    
+        print("\nCalculating ...")
     if time_period == 'none' or time_period == 'month':
-        start_time = time.time() #Save current time before execution        
+        start_time = time.time() #Save current time before execution
         # get the most popular day
         popular_day(df_filtered)
         print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took
-        print("\nCalculating ...")    
+        print("\nCalculating ...")
         start_time = time.time() #Save current time before execution
     # get the most popular hour
     popular_hour(df_filtered)
@@ -259,16 +259,16 @@ def program(): #The Main funtion that holds all operations
     print("\nCalculating ...")
     start_time = time.time() #Save current time before execution
     # get the most popular journy
-    popular_journy(df_filtered) 
+    popular_journy(df_filtered)
     print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took
     print("\nCalculating ...")
     start_time = time.time() #Save current time before execution
     # get the counts of user type
     users(df_filtered)
-    print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took    
+    print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took
     if city == 'chicago.csv' or city == 'new_york_city.csv':
         print("\nCalculating statistic...")
-        start_time = time.time() #Save current time before execution        
+        start_time = time.time() #Save current time before execution
         # get the counts of gender
         gender(df_filtered)
         print("That took %s seconds." % (time.time() - start_time)) #print the current time - time before execution then we get time it took
