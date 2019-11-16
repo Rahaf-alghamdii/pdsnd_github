@@ -9,7 +9,7 @@ def select_city():
     all_states = ['new york', 'chicago', 'washington'] #list of states we have
     while state.lower() not in all_states: #set the value user type as lowercase in city variable
         state = input('Let\'s explore some data from United States!\n' 'Would you like to see '
-                      'see bikeshare data for  New York, Chicago, or' ' Washington?\n')
+                      'see bikeshare data for  New York, Chicago, or' ' Washington??\n')
         if state.lower() == 'new york':
             return 'new_york_city.csv'
         elif state.lower() == 'chicago':
