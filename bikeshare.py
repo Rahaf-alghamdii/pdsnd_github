@@ -204,7 +204,7 @@ def display_data(df):
                 break
 
 
-def program(): #The Main funtion that holds all operations
+def app(): #The Main funtion that holds all operations
     #Get some quick info about the city and period he selected
     # Filter by city (Chicago, New York, Washington)
     city = select_city()
@@ -285,9 +285,9 @@ def program(): #The Main funtion that holds all operations
         print("Invalid input. Please type 'yes' or 'no'.")
         restart = input('\nWould you like to restart? Type \'yes\' or \'no\'.\n')
     if restart.lower() == 'yes': #if user typed yes then run the program again
-        program()
+        app()
 
 
 
 if __name__ == "__main__":
-	program() #start the program with this function to let the user choose city and other filters
+	app() #start the program with this function to let the user choose city and other filters
