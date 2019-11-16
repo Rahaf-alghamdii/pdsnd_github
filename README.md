@@ -1,10 +1,10 @@
 ### Date created
 Dated 16-11-2019
 ### Project Title
-bikeshare data analysis 
+bikeshare data analysis
 
 ### Description
-Describe what your project is about and what it does
+bikeshare data analysis in three cites 
 
 ### Files used
 Include the files used
